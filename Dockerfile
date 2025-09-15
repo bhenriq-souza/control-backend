@@ -22,4 +22,4 @@ COPY --from=builder /app/dist ./dist
 
 ENV NODE_ENV=production
 
-CMD ["node", "dist/src/app.js"]
+CMD ["node", "dist/src/server.js"]

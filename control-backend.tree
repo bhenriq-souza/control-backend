@@ -1,0 +1,43 @@
+.
+├── CHANGELOG
+├── Dockerfile
+├── control-backend.tree
+├── eslint.config.mts
+├── jest.config.ts
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app.ts
+│   ├── common
+│   │   ├── env.common.ts
+│   │   ├── index.ts
+│   │   └── logger.common.ts
+│   ├── configs
+│   │   └── env.list.ts
+│   ├── container.ts
+│   ├── controllers
+│   │   ├── index.ts
+│   │   └── users.controller.ts
+│   ├── interfaces
+│   │   ├── common.interfaces.ts
+│   │   ├── index.ts
+│   │   └── users.interfaces.ts
+│   ├── middlewares
+│   ├── routes
+│   │   ├── index.ts
+│   │   └── users.routes.ts
+│   ├── server.ts
+│   ├── services
+│   │   ├── index.ts
+│   │   └── users.service.ts
+│   ├── symbols
+│   │   ├── commons.symbols.ts
+│   │   ├── index.ts
+│   │   └── users.symbols.ts
+│   └── types
+│       ├── env.types.ts
+│       └── index.ts
+├── tests
+└── tsconfig.json
+
+12 directories, 29 files
