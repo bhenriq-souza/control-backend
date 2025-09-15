@@ -18,7 +18,10 @@
         "outDir": "dist",
         "isolatedModules": true,
         "paths": {
-            "src/*": ["src/*"]
+            "src/*": ["src/*"],
+            "tests/*": ["tests/*"]
         }
-    }
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "tests/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
 }
