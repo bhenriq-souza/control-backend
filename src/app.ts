@@ -6,7 +6,11 @@ import { IApp } from './interfaces';
 import { setupContainer } from './container';
 import { UserRoutesSymbol } from './symbols';
 import { UsersRoutes } from './routes';
-import { loggingRequestMiddleware, correlationIdMiddleware } from './middlewares';
+import {
+    loggingRequestMiddleware,
+    correlationIdMiddleware,
+    requestTimingMiddleware,
+} from './middlewares';
 
 type ExpressApp = ReturnType<typeof express>;
 
@@ -22,6 +26,7 @@ export class App implements IApp {
 
         /** Middlewares */
         app.use(correlationIdMiddleware);
+        app.use(requestTimingMiddleware);
         app.use(loggingRequestMiddleware);
 
         /** Users Routes */

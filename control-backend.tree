@@ -18,11 +18,17 @@
 │   ├── controllers
 │   │   ├── index.ts
 │   │   └── users.controller.ts
+│   ├── helpers
+│   │   ├── http.helper.ts
+│   │   └── index.ts
 │   ├── interfaces
 │   │   ├── common.interfaces.ts
 │   │   ├── index.ts
 │   │   └── users.interfaces.ts
 │   ├── middlewares
+│   │   ├── correlationId.middleware.ts
+│   │   ├── index.ts
+│   │   └── loggingRequest.middleware.ts
 │   ├── routes
 │   │   ├── index.ts
 │   │   └── users.routes.ts
@@ -36,8 +42,10 @@
 │   │   └── users.symbols.ts
 │   └── types
 │       ├── env.types.ts
-│       └── index.ts
+│       ├── http.types.ts
+│       ├── index.ts
+│       └── users.types.ts
 ├── tests
 └── tsconfig.json
 
-12 directories, 29 files
+13 directories, 36 files
