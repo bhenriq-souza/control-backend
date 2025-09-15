@@ -26,4 +26,19 @@ export const envList: EnvList = [
         required: true,
         description: 'Express server port',
     },
+    {
+        key: 'MONGODB_URI',
+        required: true,
+        description: 'MongoDB connection URI',
+    },
+    {
+        key: 'MONGODB_DB',
+        required: true,
+        description: 'MongoDB database name',
+    },
+    {
+        key: 'USERS_COLLECTION',
+        required: true,
+        description: 'MongoDB users collection name',
+    },
 ];

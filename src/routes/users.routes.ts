@@ -19,6 +19,8 @@ export class UsersRoutes implements IBaseRoute {
     private registerRoutes(): void {
         this.router = express.Router();
 
+        this.router.post('/', (req, res) => this.controller.createUser(req, res));
+
         this.router.get('/greet', (req, res) => this.controller.greet(req, res));
     }
 

@@ -36,8 +36,8 @@ export class App implements IApp {
         this.app = app;
     }
 
-    public build(): ExpressApp {
-        const container = setupContainer();
+    public async build(): Promise<ExpressApp> {
+        const container = await setupContainer();
 
         if (!this.app) {
             this.buildAppRoutes(container);

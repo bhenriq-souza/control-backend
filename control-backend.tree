@@ -14,21 +14,36 @@
 │   │   └── logger.common.ts
 │   ├── configs
 │   │   └── env.list.ts
+│   ├── constants
+│   │   ├── index.ts
+│   │   └── users.constants.ts
 │   ├── container.ts
 │   ├── controllers
 │   │   ├── index.ts
 │   │   └── users.controller.ts
+│   ├── database
+│   │   ├── index.ts
+│   │   ├── mongodb.provider.ts
+│   │   └── mongodb.schema.ts
+│   ├── entities
+│   │   ├── index.ts
+│   │   └── user.entities.ts
 │   ├── helpers
 │   │   ├── http.helper.ts
 │   │   └── index.ts
 │   ├── interfaces
 │   │   ├── common.interfaces.ts
 │   │   ├── index.ts
+│   │   ├── mongodb.interfaces.ts
 │   │   └── users.interfaces.ts
 │   ├── middlewares
 │   │   ├── correlationId.middleware.ts
 │   │   ├── index.ts
-│   │   └── loggingRequest.middleware.ts
+│   │   ├── loggingRequest.middleware.ts
+│   │   └── requestTiming.middleware.ts
+│   ├── repositories
+│   │   ├── index.ts
+│   │   └── users.repository.ts
 │   ├── routes
 │   │   ├── index.ts
 │   │   └── users.routes.ts
@@ -39,13 +54,15 @@
 │   ├── symbols
 │   │   ├── commons.symbols.ts
 │   │   ├── index.ts
+│   │   ├── mongodb.symbols.ts
 │   │   └── users.symbols.ts
 │   └── types
 │       ├── env.types.ts
 │       ├── http.types.ts
 │       ├── index.ts
+│       ├── mongodb.types.ts
 │       └── users.types.ts
 ├── tests
 └── tsconfig.json
 
-13 directories, 36 files
+17 directories, 49 files
