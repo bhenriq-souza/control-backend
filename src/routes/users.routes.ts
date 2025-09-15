@@ -10,16 +10,16 @@ type UserRouter = ReturnType<typeof express.Router>;
 @injectable()
 export class UsersRoutes implements IBaseRoute {
     router?: UserRouter = null;
+    controller: UsersController;
 
-    constructor() {}
+    constructor() {
+        this.controller = container.resolve<UsersController>(UserControllerSymbol);
+    }
 
     private registerRoutes(): void {
         this.router = express.Router();
 
-        this.router.get('/greet', (req, res) => {
-            const ctrl = container.resolve<UsersController>(UserControllerSymbol);
-            return ctrl.greet(req, res);
-        });
+        this.router.get('/greet', (req, res) => this.controller.greet(req, res));
     }
 
     public getRouter(): UserRouter {
