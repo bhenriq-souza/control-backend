@@ -1,0 +1,65 @@
+{
+    "name": "control-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "build": "tsc",
+        "eslint": "npx eslint . --ignore-pattern 'coverage/*'",
+        "eslint:fix": "npx eslint . --fix --ignore-pattern 'coverage/*'",
+        "format": "npx prettier --write .",
+        "format:check": "npx prettier --check .",
+        "generate:tree": "rm -rf aec-common-typescript-packages.tree && tree -I 'node_modules|coverage|dist|.vscode' . >> aec-common-typescript-packages.tree",
+        "start": "node dist/app.js",
+        "start:local": "ts-node-dev --inspect=9229 --respawn src/app.ts",
+        "test:coverage": "jest tests/unit --coverage",
+        "test:watch": "jest tests/unit --coverage --watch",
+        "test:single-file": "jest"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.32.0",
+        "@types/express": "^5.0.3",
+        "@types/jest": "^30.0.0",
+        "@types/node": "^18.16.9",
+        "dotenv": "^17.2.1",
+        "eslint": "^9.32.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.3",
+        "express": "^5.1.0",
+        "globals": "^16.3.0",
+        "husky": "^8.0.0",
+        "jest": "^30.0.5",
+        "jest-environment-node": "^30.0.2",
+        "jest-util": "^30.0.2",
+        "jiti": "^2.5.1",
+        "jsonc-eslint-parser": "^2.1.0",
+        "lint-staged": "^16.1.4",
+        "prettier": "^3.6.2",
+        "testcontainers": "^11.5.1",
+        "tree": "^0.1.3",
+        "ts-jest": "^29.4.1",
+        "ts-node": "^10.9.1",
+        "ts-node-dev": "^2.0.0",
+        "tslib": "^2.3.0",
+        "typescript": "~5.8.2",
+        "typescript-eslint": "^8.39.0"
+    },
+    "dependencies": {
+        "reflect-metadata": "^0.2.2",
+        "tsyringe": "^4.10.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bhenriq-souza/control-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/bhenriq-souza/control-backend/issues"
+    },
+    "homepage": "https://github.com/bhenriq-souza/control-backend#readme"
+}
