@@ -7,9 +7,9 @@ import { GreetResponse } from '../types';
 export class UsersService implements IUserService {
     constructor() {}
 
-    sayHello(): GreetResponse {
+    public sayHello(requester: string): GreetResponse {
         return {
-            message: 'Hello, User!',
+            message: `Hello, ${requester}!`,
         };
     }
 }

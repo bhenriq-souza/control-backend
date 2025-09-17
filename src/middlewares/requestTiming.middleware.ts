@@ -28,6 +28,7 @@ export function requestTimingMiddleware(req, res, next) {
             correlationId,
             userAgent: req.headers['user-agent'],
             ip: req.ip,
+            requester: req.requester || 'N/A',
         });
     });
 

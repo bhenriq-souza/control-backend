@@ -1,10 +1,15 @@
-import express from 'express';
+import type { Response, Request } from 'express';
 import { GreetResponse } from '../types';
+import { UserEntity } from '../entities';
 
 export interface IUserService {
-    sayHello(): { message: string };
+    sayHello(requester: string): { message: string };
 }
 
 export interface IUserController {
-    greet(_req: express.Request, res: express.Response): express.Response<GreetResponse>;
+    greet(req: Request, res: Response): Response<GreetResponse>;
+}
+
+export interface IUserRepository {
+    createUser(user: UserEntity): Promise<string>;
 }

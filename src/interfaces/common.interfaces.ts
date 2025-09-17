@@ -5,7 +5,7 @@ export interface IBaseRoute {
 }
 
 export interface IApp {
-    build(): ReturnType<typeof express>;
+    build(): Promise<ReturnType<typeof express>>;
 }
 
 export interface ILogger {

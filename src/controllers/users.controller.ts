@@ -1,4 +1,3 @@
-import express from 'express';
 import { inject, injectable } from 'tsyringe';
 
 import { HttpHelper } from '../helpers';
@@ -6,6 +5,8 @@ import { IUserController } from '../interfaces';
 import type { ILogger, IUserService } from '../interfaces';
 import { HttpHelperSymbol, LoggerServiceSymbol, UserServiceSymbol } from '../symbols';
 import { GreetResponse } from '../types';
+
+import type { Response, Request } from 'express';
 
 @injectable()
 export class UsersController implements IUserController {
@@ -15,11 +16,13 @@ export class UsersController implements IUserController {
         @inject(LoggerServiceSymbol) private readonly logger: ILogger,
     ) {}
 
-    greet(_req: express.Request, res: express.Response): express.Response<GreetResponse> {
+    greet(req: Request, res: Response): Response<GreetResponse> {
         try {
             this.logger.info('Greet method called in UsersController');
 
-            const data = this.userService.sayHello();
+            const requester = (req as any).requester || 'user';
+
+            const data = this.userService.sayHello(requester);
 
             return this.http.ok<GreetResponse>(res, data);
         } catch (error) {
