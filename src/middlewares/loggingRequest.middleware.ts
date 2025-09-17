@@ -6,6 +6,7 @@ export function loggingRequestMiddleware(req, res, next) {
     const { method, url, body, query, params, headers } = req;
     const logger = container.resolve<LoggerService>(LoggerServiceSymbol);
     const correlationId = headers['x-correlation-id'] || 'N/A';
+    const requester = (req as any).requester || 'N/A';
 
     logger.info(`Incoming request: ${req.method} ${req.url}`, {
         method,
@@ -14,6 +15,7 @@ export function loggingRequestMiddleware(req, res, next) {
         query,
         params,
         correlationId,
+        requester,
     });
 
     next();

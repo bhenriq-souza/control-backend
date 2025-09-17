@@ -41,4 +41,9 @@ export const envList: EnvList = [
         required: true,
         description: 'MongoDB users collection name',
     },
+    {
+        key: 'GOOGLE_CLOUD_PROJECT',
+        required: true,
+        description: 'Google Cloud project ID',
+    },
 ];

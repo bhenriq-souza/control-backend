@@ -9,10 +9,12 @@ import { UsersController } from './controllers';
 import { EnvService, LoggerService } from './common';
 import { MongodbProvider } from './database';
 import { HttpHelper } from './helpers';
+import { FirebaseAuthProvider } from './providers';
 import { UserRepository } from './repositories';
 import {
     EnvListSymbol,
     EnvServiceSymbol,
+    FirebaseAuthProviderSymbol,
     HttpHelperSymbol,
     LoggerServiceSymbol,
     MongodbClientSymbol,
@@ -44,6 +46,9 @@ export async function setupContainer() {
     container.registerInstance(MongodbClientSymbol, await new MongoClient(mongoDbUri).connect());
     container.register(MongodbDatabaseSymbol, { useValue: mongoDbDatabase });
     container.registerSingleton<MongodbProvider>(MongodbProviderSymbol, MongodbProvider);
+
+    /* firebase auth */
+    container.register<FirebaseAuthProvider>(FirebaseAuthProviderSymbol, FirebaseAuthProvider);
 
     /* users */
     container.register<UserRepository>(UserRepositorySymbol, UserRepository);

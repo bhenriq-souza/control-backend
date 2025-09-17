@@ -33,6 +33,7 @@
 │   │   └── index.ts
 │   ├── interfaces
 │   │   ├── common.interfaces.ts
+│   │   ├── firebaseAuth.interfaces.ts
 │   │   ├── index.ts
 │   │   ├── mongodb.interfaces.ts
 │   │   └── users.interfaces.ts
@@ -40,7 +41,11 @@
 │   │   ├── correlationId.middleware.ts
 │   │   ├── index.ts
 │   │   ├── loggingRequest.middleware.ts
-│   │   └── requestTiming.middleware.ts
+│   │   ├── requestTiming.middleware.ts
+│   │   └── verifyToken.middleware.ts
+│   ├── providers
+│   │   ├── firebaseAuth.provider.ts
+│   │   └── index.ts
 │   ├── repositories
 │   │   ├── index.ts
 │   │   └── users.repository.ts
@@ -53,6 +58,7 @@
 │   │   └── users.service.ts
 │   ├── symbols
 │   │   ├── commons.symbols.ts
+│   │   ├── firebaseAuth.symbols.ts
 │   │   ├── index.ts
 │   │   ├── mongodb.symbols.ts
 │   │   └── users.symbols.ts
@@ -65,4 +71,4 @@
 ├── tests
 └── tsconfig.json
 
-17 directories, 49 files
+18 directories, 54 files

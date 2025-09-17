@@ -10,6 +10,7 @@ import {
     loggingRequestMiddleware,
     correlationIdMiddleware,
     requestTimingMiddleware,
+    verifyTokenMiddleware,
 } from './middlewares';
 
 type ExpressApp = ReturnType<typeof express>;
@@ -25,6 +26,7 @@ export class App implements IApp {
         app.use(express.json());
 
         /** Middlewares */
+        app.use(verifyTokenMiddleware);
         app.use(correlationIdMiddleware);
         app.use(requestTimingMiddleware);
         app.use(loggingRequestMiddleware);

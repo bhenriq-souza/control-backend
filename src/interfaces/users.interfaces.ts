@@ -1,20 +1,13 @@
 import type { Response, Request } from 'express';
-import { CreateUserResponse, GreetResponse } from '../types';
+import { GreetResponse } from '../types';
 import { UserEntity } from '../entities';
 
 export interface IUserService {
-    sayHello(): { message: string };
-    createUser(
-        name: string,
-        username: string,
-        profile: string,
-        modifierId?: string,
-    ): Promise<string>;
+    sayHello(requester: string): { message: string };
 }
 
 export interface IUserController {
-    greet(_req: Request, res: Response): Response<GreetResponse>;
-    createUser(req: Request, res: Response): Promise<Response<CreateUserResponse>>;
+    greet(req: Request, res: Response): Response<GreetResponse>;
 }
 
 export interface IUserRepository {
