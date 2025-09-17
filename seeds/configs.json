@@ -1,0 +1,129 @@
+[
+    {
+        "config_name": "event_type",
+        "entries": [
+            {
+                "id": "alimentacao",
+                "shown_value": "Alimentação"
+            },
+            {
+                "id": "auxilios",
+                "shown_value": "Auxílios"
+            },
+            {
+                "id": "carro",
+                "shown_value": "Carro"
+            },
+            {
+                "id": "cartao_de_credito",
+                "shown_value": "Cartão de Crédito"
+            },
+            {
+                "id": "casa",
+                "shown_value": "Casa"
+            },
+            {
+                "id": "educacao",
+                "shown_value": "Educação"
+            },
+            {
+                "id": "enterterimento",
+                "shown_value": "Entertenimento"
+            },
+            {
+                "id": "estetica",
+                "shown_value": "Estética"
+            },
+            {
+                "id": "impostos",
+                "shown_value": "Impostos"
+            },
+            {
+                "id": "investimento",
+                "shown_value": "Investimento"
+            },
+            {
+                "id": "pets",
+                "shown_value": "Pets"
+            },
+            {
+                "id": "profissional",
+                "shown_value": "Profissional"
+            },
+            {
+                "id": "reserva",
+                "shown_value": "Reserva"
+            },
+            {
+                "id": "saude",
+                "shown_value": "Saúde"
+            },
+            {
+                "id": "servicos",
+                "shown_value": "Serviços"
+            },
+            {
+                "id": "taxas",
+                "shown_value": "Taxas"
+            },
+            {
+                "id": "terceiros",
+                "shown_value": "Terceiros"
+            },
+            {
+                "id": "utilidades",
+                "shown_value": "Utilidades"
+            },
+            {
+                "id": "vestuario",
+                "shown_value": "Vestuário"
+            }
+        ]
+    },
+    {
+        "config_name": "currency",
+        "entries": [
+            {
+                "id": "BRL",
+                "shown_value": "Real Brasileiro"
+            },
+            {
+                "id": "USD",
+                "shown_value": "Dólar Americano"
+            },
+            {
+                "id": "EUR",
+                "shown_value": "Euro"
+            }
+        ]
+    },
+    {
+        "config_name": "entry_status",
+        "entries": [
+            {
+                "id": "aberto",
+                "shown_value": "Aberto"
+            },
+            {
+                "id": "pago",
+                "shown_value": "Pago"
+            },
+            {
+                "id": "cancelado",
+                "shown_value": "Cancelado"
+            },
+            {
+                "id": "vencido",
+                "shown_value": "Vencido"
+            },
+            {
+                "id": "verificar",
+                "shown_value": "Verificar"
+            },
+            {
+                "id": "previsto",
+                "shown_value": "Previsto"
+            }
+        ]
+    }
+]
