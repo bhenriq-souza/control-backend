@@ -125,5 +125,26 @@
                 "shown_value": "Previsto"
             }
         ]
+    },
+    {
+        "config_name": "earning_category",
+        "entries": [
+            {
+                "id": "salario",
+                "shown_value": "Salário"
+            },
+            {
+                "id": "investimentos",
+                "shown_value": "Investimentos"
+            },
+            {
+                "id": "recebimento_terceiros",
+                "shown_value": "Recebimento de Terceiros"
+            },
+            {
+                "id": "outros",
+                "shown_value": "Outros"
+            }
+        ]
     }
 ]
