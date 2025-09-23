@@ -19,3 +19,9 @@ export interface ILogger {
 export interface IEnvService {
     getEnv(key: string): string;
 }
+
+export interface HttpBaseResponse<T> {
+    status: number;
+    message: string;
+    data?: T;
+}

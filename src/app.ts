@@ -4,8 +4,8 @@ import type { DependencyContainer } from 'tsyringe';
 
 import { IApp } from './interfaces';
 import { setupContainer } from './container';
-import { UserRoutesSymbol } from './symbols';
-import { UsersRoutes } from './routes';
+import { BanksRoutesSymbol, UserRoutesSymbol } from './symbols';
+import { BanksRoutes, UsersRoutes } from './routes';
 import {
     loggingRequestMiddleware,
     correlationIdMiddleware,
@@ -34,6 +34,10 @@ export class App implements IApp {
         /** Users Routes */
         const usersRoutes = container.resolve<UsersRoutes>(UserRoutesSymbol);
         app.use('/api/users', usersRoutes.getRouter());
+
+        /** Banks Routes */
+        const banksRoutes = container.resolve<BanksRoutes>(BanksRoutesSymbol);
+        app.use('/api/banks', banksRoutes.getRouter());
 
         this.app = app;
     }

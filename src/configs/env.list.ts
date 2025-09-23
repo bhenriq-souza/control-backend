@@ -46,4 +46,10 @@ export const envList: EnvList = [
         required: true,
         description: 'Google Cloud project ID',
     },
+    {
+        key: 'BANKS_COLLECTION',
+        required: false,
+        description: 'MongoDB banks collection name',
+        default: 'banks',
+    },
 ];

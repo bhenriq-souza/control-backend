@@ -1,0 +1,207 @@
+openapi: 3.0.3
+info:
+    title: Control API
+    version: 0.0.1
+    description: |
+servers:
+    - url: http://localhost:4200
+      description: Local host
+
+security:
+    - FirebaseAuth: []
+
+paths:
+    /api/banks/:
+        get:
+            tags:
+                - Banks
+            description: |
+                Get all banks.
+            operationId: getAllBanks
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DefaultResponse'
+        post:
+            tags:
+                - Banks
+            description: |
+                Create a new bank.
+            operationId: createBank
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateBankRequestData'
+            responses:
+                '201':
+                    description: Created
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DefaultResponse'
+        put:
+            tags:
+                - Banks
+            description: |
+                Update an existing bank.
+            operationId: updateBank
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateBankRequestData'
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DefaultResponse'
+    /api/banks/{bankId}:
+        get:
+            tags:
+                - Banks
+            description: |
+                Get a bank by its ID.
+            operationId: getBankById
+            parameters:
+                - name: bankId
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+                  description: The ID of the bank to retrieve.
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DefaultResponse'
+        delete:
+            tags:
+                - Banks
+            description: |
+                Delete a bank by its ID.
+            operationId: deleteBank
+            parameters:
+                - name: bankId
+                  in: path
+                  required: true
+                  schema:
+                      type: string
+                  description: The ID of the bank to delete.
+            responses:
+                '200':
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DefaultResponse'
+components:
+    securitySchemes:
+        FirebaseAuth:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT
+            description: Firebase ID Token (JWT) in the Authorization header.
+
+    schemas:
+        CreateBankRequestData:
+            type: object
+            required:
+                - name
+                - febraban
+            properties:
+                name:
+                    type: string
+                    description: Name of the bank.
+                febraban:
+                    type: string
+                    description: Code of the bank.
+            title: CreateBankRequestData
+        UpdateBankRequestData:
+            type: object
+            required:
+                - bankId
+                - bank
+            properties:
+                bankId:
+                    type: string
+                    description: ID of the bank to update.
+                bank:
+                    type: object
+                    description: Updated bank data.
+                    properties:
+                        name:
+                            type: string
+                            description: Updated name of the bank.
+                        febraban:
+                            type: string
+                            description: Updated code of the bank.
+            title: UpdateBankRequestData
+
+        DefaultResponse:
+            type: object
+            properties:
+                status:
+                    anyOf:
+                        - $ref: '#/components/schemas/HttpStatus'
+                data:
+                    anyOf:
+                        - $ref: '#/components/schemas/DefaultResponseData'
+                message:
+                    type: string
+                    example: Erro ao processar a requisição.
+                    description: Mensagem de erro, se houver.
+                error:
+                    type: object
+                    description: Detalhes do erro, se houver.
+                    anyOf:
+                        - $ref: '#/components/schemas/ErrorDetails'
+            required:
+                - status
+                - data
+            title: DefaultResponse
+        DefaultResponseData:
+            type: object
+            properties:
+                message:
+                    type: string
+                    description: Response message.
+            required:
+                - message
+            title: DefaultResponseData
+
+        HttpStatus:
+            type: string
+            enum:
+                - '200'
+                - '201'
+                - '204'
+                - '400'
+                - '401'
+                - '403'
+                - '404'
+                - '405'
+                - '409'
+                - '500'
+                - '501'
+                - '503'
+            title: HttpStatus
+
+        ErrorDetails:
+            type: object
+            properties:
+                stack:
+                    type: string
+                    description: Pilha de chamadas do erro.
+
+tags:
+    - name: Banks

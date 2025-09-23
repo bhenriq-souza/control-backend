@@ -4,7 +4,7 @@ export class Expense extends Document {
     bankAccountId: string;
     status: string;
     category: string;
-    creditCardId?: string;
+    creditCardStatementId?: string;
     value: number;
     description: string;
     installments: boolean;

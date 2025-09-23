@@ -2,16 +2,20 @@ import 'reflect-metadata';
 import { container } from 'tsyringe';
 import { MongoClient } from 'mongodb';
 
-import { UsersRoutes } from './routes';
-import { UsersService } from './services';
+import { BanksRoutes, UsersRoutes } from './routes';
+import { BanksService, UsersService } from './services';
 import { envList } from './configs/env.list';
-import { UsersController } from './controllers';
+import { BanksController, UsersController } from './controllers';
 import { EnvService, LoggerService } from './common';
 import { MongodbProvider } from './database';
 import { HttpHelper } from './helpers';
 import { FirebaseAuthProvider } from './providers';
-import { UserRepository } from './repositories';
+import { BanksRepository, UserRepository } from './repositories';
 import {
+    BankControllerSymbol,
+    BankServiceSymbol,
+    BanksRepositorySymbol,
+    BanksRoutesSymbol,
     EnvListSymbol,
     EnvServiceSymbol,
     FirebaseAuthProviderSymbol,
@@ -55,6 +59,12 @@ export async function setupContainer() {
     container.register<UsersService>(UserServiceSymbol, UsersService);
     container.register<UsersController>(UserControllerSymbol, UsersController);
     container.register<UsersRoutes>(UserRoutesSymbol, UsersRoutes);
+
+    /* banks */
+    container.register<BanksRoutes>(BanksRoutesSymbol, BanksRoutes);
+    container.register<BanksRepository>(BanksRepositorySymbol, BanksRepository);
+    container.register<BanksService>(BankServiceSymbol, BanksService);
+    container.register<BanksController>(BankControllerSymbol, BanksController);
 
     return container;
 }

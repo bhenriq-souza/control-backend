@@ -52,7 +52,8 @@
         "mongodb": "^6.19.0",
         "reflect-metadata": "^0.2.2",
         "tsyringe": "^4.10.0",
-        "winston": "^3.17.0"
+        "winston": "^3.17.0",
+        "zod": "^4.1.11"
     },
     "repository": {
         "type": "git",
